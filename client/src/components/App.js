@@ -11,12 +11,12 @@ import HolidayList from "./HolidayList"
 import NewHolidayForm from "./NewHolidayForm"
 
 const App = (props) => {
-  const [currentUser, setCurrentUser] = useState(undefined);
+  const [currentUser, setCurrentUser] = useState(undefined)
   const fetchCurrentUser = async () => {
     try {
       const user = await getCurrentUser()
       setCurrentUser(user)
-    } catch(err) {
+    } catch (err) {
       setCurrentUser(null)
     }
   }
@@ -31,11 +31,12 @@ const App = (props) => {
       <Switch>
         <Route exact path="/" component={HolidayList} />
         <Route exact path="/new-holiday" component={NewHolidayForm} />
+        <Route exact path="/holidays/:id" component={HolidayShow} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>
     </Router>
-  );
-};
+  )
+}
 
-export default hot(App);
+export default hot(App)

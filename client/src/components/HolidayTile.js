@@ -1,12 +1,14 @@
-import React from "react";
+import React from "react"
+import { Link } from "react-router-dom"
 
 const HolidayTile = (props) => {
-    
-    return (
-            <li> 
-                {props.name}: {props.date}
-            </li>
-    )
-} 
+  return (
+    <div>
+      <Link to={`/holidays/${props.id}`}>
+        {props.name}: {props.date}
+      </Link>
+    </div>
+  )
+}
 
 export default HolidayTile

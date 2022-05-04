@@ -27,4 +27,14 @@ holidaysRouter.post("/", async (req, res) => {
   }
 })
 
+holidaysRouter.get("/:id", async (req, res) => {
+  const id = req.params.id
+  try {
+    const holiday = await Holiday.query().findById(id)
+    res.status(200).json({ holiday })
+  } catch (error) {
+    res.status(500).json({ error })
+  }
+})
+
 export default holidaysRouter
