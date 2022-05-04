@@ -1,0 +1,34 @@
+import React, { useState, useEffect } from "react"
+
+const HolidayShow = props => {
+
+    const [holiday, setHoliday] = useState({})
+
+    const holidayId = props.match.params.id
+    const fetchHoliday = async () => {
+        try {
+            const response = await fetch(`/api/v1/holidays/${holidayId}`)
+            if (!response.ok) {
+                const error = new Error(`${response.status} (${response.statusText})`)
+                throw error
+            }
+            const responseBody = await response.json()
+            setHoliday(responseBody.holiday)
+        } catch (error) {
+            console.log(`Error in fetch: ${error.message}`)
+        }
+    }
+
+    useEffect(() => {
+        fetchHoliday()
+    }, [])
+
+    return (
+        <div>
+            <h1>{holiday.name}</h1>
+            <h3>{holiday.date}</h3>
+        </div>
+    )
+}
+
+export default HolidayShow
