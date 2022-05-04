@@ -3,4 +3,4 @@ const User = require("./User.js")
 const Holiday = require("./Holiday.js")
 const Model = require("./Model.js")
 
-module.exports = { User, Holiday, Model };
+module.exports = { User, Holiday, Model }

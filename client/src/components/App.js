@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { hot } from "react-hot-loader/root";
+import React, { useState, useEffect } from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { hot } from "react-hot-loader/root"
 
-import getCurrentUser from "../services/getCurrentUser";
-import "../assets/scss/main.scss";
-import RegistrationForm from "./registration/RegistrationForm";
-import SignInForm from "./authentication/SignInForm";
-import TopBar from "./layout/TopBar";
-import HolidayList from './HolidayList.js'
-import HolidayShow from "./HolidayShow";
+import getCurrentUser from "../services/getCurrentUser"
+import "../assets/scss/main.scss"
+import RegistrationForm from "./registration/RegistrationForm"
+import SignInForm from "./authentication/SignInForm"
+import TopBar from "./layout/TopBar"
+import HolidayList from "./HolidayList.js"
+import HolidayShow from "./HolidayShow"
 
 const App = (props) => {
-  const [currentUser, setCurrentUser] = useState(undefined);
+  const [currentUser, setCurrentUser] = useState(undefined)
   const fetchCurrentUser = async () => {
     try {
       const user = await getCurrentUser()
@@ -30,12 +30,12 @@ const App = (props) => {
       <TopBar user={currentUser} />
       <Switch>
         <Route exact path="/" component={HolidayList} />
-        <Route exact path="/:id" component={HolidayShow} />
+        <Route exact path="/holidays/:id" component={HolidayShow} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>
     </Router>
-  );
-};
+  )
+}
 
-export default hot(App);
+export default hot(App)
