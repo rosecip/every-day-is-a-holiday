@@ -31,9 +31,26 @@ const HolidayList = (props) => {
 
   return (
     <div>
-      <h1>Every Day is a Holiday</h1>
-      <div>{holidayListItem}</div>
-      <Link to="/new-holiday">Add a new holiday</Link>
+      <div className="jumbotron">
+        <h1 className="header">Review Your Favorite Holidays</h1>
+      </div>
+      <div className="page-content">
+        <div className="left-side-bar">
+          <div className="side-bar-image"></div>
+          <p className="side-bar-info">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+            mollit anim id est laborum.
+          </p>
+        </div>
+        <div className="holiday-list-container">
+          <Link to="/new-holiday">Add a new holiday</Link>
+          <div className="holiday-list">{holidayListItem}</div>
+        </div>
+      </div>
     </div>
   )
 }
