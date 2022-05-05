@@ -38,12 +38,10 @@ const HolidayList = (props) => {
         <div className="left-side-bar">
           <div className="side-bar-image"></div>
           <p className="side-bar-info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
+            Have you ever wanted to write a review and rate your favorite holiday? NOW YOU CAN! Here
+            at Every Day is a Holiday you can a join a community to see what others think about your
+            favorite (or least favorite) holidays. You dont see your favorite holiday? You can add
+            your own but be wary that it will be available for others to review!
           </p>
         </div>
         <div className="holiday-list-container">
