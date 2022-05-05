@@ -31,9 +31,24 @@ const HolidayList = (props) => {
 
   return (
     <div>
-      <h1>Every Day is a Holiday</h1>
-      <div>{holidayListItem}</div>
-      <Link to="/new-holiday">Add a new holiday</Link>
+      <div className="jumbotron">
+        <h1 className="header">Review Your Favorite Holidays</h1>
+      </div>
+      <div className="page-content">
+        <div className="left-side-bar">
+          <div className="side-bar-image"></div>
+          <p className="side-bar-info">
+            Have you ever wanted to write a review and rate your favorite holiday? NOW YOU CAN! Here
+            at Every Day is a Holiday you can a join a community to see what others think about your
+            favorite (or least favorite) holidays. You dont see your favorite holiday? You can add
+            your own but be wary that it will be available for others to review!
+          </p>
+        </div>
+        <div className="holiday-list-container">
+          <Link to="/new-holiday">Add a new holiday</Link>
+          <div className="holiday-list">{holidayListItem}</div>
+        </div>
+      </div>
     </div>
   )
 }

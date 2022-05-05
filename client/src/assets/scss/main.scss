@@ -1,6 +1,7 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
+@import url("https://fonts.googleapis.com/css2?family=Koulen&display=swap");
 // place global css here
 *,
 *::before,
@@ -12,3 +13,91 @@
   -moz-tab-size: 4;
   tab-size: 4;
 }
+
+body {
+  background-color: #f7f4f4;
+}
+.home, .home:hover, .home:visited {
+  font-family: "Koulen", cursive;
+  font-size: 2.5em;
+  color: #2b4a36;
+  text-decoration: none;
+}
+
+.nav {
+  background-color: #f7f4f4 !important;
+  margin-top: 0.5em;
+}
+
+.sign-in, .sign-in:visited {
+  color: #2b4a36;
+}
+
+.sign-in:hover {
+  color: #aa704f;
+}
+
+.sign-button, .sign-button:visited {
+  background-color: #2b4a36;
+  color: white;
+  border-radius: 12%;
+}
+
+.button:hover {
+  background-color: #aa704f !important;
+}
+
+.button:active {
+  background-color: #2b4a36 !important;
+}
+
+.jumbotron {
+  margin-top: 1em;
+  background-image: url("https://images.unsplash.com/photo-1550301058-13f83b4e4445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hyaXN0bWFzJTIwbGlnaHRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 18em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+.header {
+  color: white;
+  font-weight: bold;
+}
+
+.page-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.holiday-list-container {
+  border: 1px solid black;
+  width: 45em;
+  height: 40em;
+  display: flex;
+}
+
+.left-side-bar {
+  width: 16em;
+  height: 40em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-bar-image {
+  background-image: url("https://images.unsplash.com/photo-1572860177022-8fda92a90c95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aGFsbG93ZWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60");
+  width: 12em;
+  height: 12em;
+  border-radius: 100%;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 2em;
+  border: .15em solid black;
+  box-shadow: -1px 1px 2px 5px gray;
+}
+
