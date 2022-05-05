@@ -15,6 +15,20 @@ class Holiday extends Model {
       },
     }
   }
+
+  static get relationMappings() {
+    const Review = require("./Review.js")
+    return {
+      reviews: {
+        relation: Model.HasManyRelation,
+        modelClass: Review,
+        join: {
+          from: "holidays.id",
+          to: "reviews.holidayId"
+        }
+      }
+    }
+  }
 }
 
 module.exports = Holiday
