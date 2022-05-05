@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react"
+import ReviewTile from "./ReviewTile"
 
 const HolidayShow = (props) => {
-  const [holiday, setHoliday] = useState({})
+  const [holiday, setHoliday] = useState({
+    name: "",
+    date: "",
+    reviews: [],
+  })
 
   const holidayId = props.match.params.id
   const fetchHoliday = async () => {
@@ -22,10 +27,16 @@ const HolidayShow = (props) => {
     fetchHoliday()
   }, [])
 
+  const reviewTiles = holiday.reviews.map((review) => {
+    return <ReviewTile {...review} />
+  })
+
   return (
     <div>
       <h1>{holiday.name}</h1>
       <h3>{holiday.date}</h3>
+      <h3>Reviews</h3>
+      {reviewTiles}
     </div>
   )
 }
