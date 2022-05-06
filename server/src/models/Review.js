@@ -27,7 +27,7 @@ class Review extends Model {
           to: "holidays.id",
         },
       },
-      users: {
+      user: {
         relation: Model.BelongsToOneRelation,
         modelClass: User,
         join: {
