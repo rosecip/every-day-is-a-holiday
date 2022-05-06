@@ -19,7 +19,7 @@ class Review extends Model {
   static get relationMappings() {
     const { Holiday, User } = require("./index.js")
     return {
-      holidays: {
+      holiday: {
         relation: Model.BelongsToOneRelation,
         modelClass: Holiday,
         join: {
