@@ -2,6 +2,7 @@ import express from "express"
 import Holiday from "../../../models/Holiday.js"
 import { ValidationError } from "objection"
 import cleanUserInput from "../../../services/cleanUserInput.js"
+import HolidaySerializer from "../../../serializers/HolidaySerializer.js"
 
 const holidaysRouter = new express.Router()
 
@@ -31,8 +32,8 @@ holidaysRouter.get("/:id", async (req, res) => {
   const id = req.params.id
   try {
     const holiday = await Holiday.query().findById(id)
-    holiday.reviews = await holiday.$relatedQuery("reviews")
-    res.status(200).json({ holiday })
+    const serializedHoliday = await HolidaySerializer.getSummary(holiday)
+    res.status(200).json({ serializedHoliday })
   } catch (error) {
     res.status(500).json({ error })
   }
