@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import ReviewTile from "./ReviewTile"
+import ReviewForm from "./ReviewForm"
 
 const HolidayShow = (props) => {
   const [holiday, setHoliday] = useState({
@@ -36,6 +37,7 @@ const HolidayShow = (props) => {
       <h1>{holiday.name}</h1>
       <h3>{holiday.date}</h3>
       <h3>Reviews</h3>
+      <ReviewForm/>
       {reviewTiles}
     </div>
   )
