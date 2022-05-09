@@ -21,7 +21,7 @@ const HolidayShow = (props) => {
         throw error
       }
       const responseBody = await response.json()
-      setHoliday(responseBody.holiday)
+      setHoliday(responseBody.serializedHoliday)
     } catch (error) {
       console.log(`Error in fetch: ${error.message}`)
     }
