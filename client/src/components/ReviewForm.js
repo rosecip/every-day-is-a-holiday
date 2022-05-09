@@ -3,21 +3,21 @@ import ErrorList from "../components/layout/ErrorList"
 
 const ReviewForm = (props) => {
   const reviewStars = ["", 1, 2, 3, 4, 5]
-  const [newReviews, setReviews] = useState({
+  const [newReview, setReview] = useState({
     title: "",
     body: "",
     rating: "",
   })
 
   const handleChange = (event) => {
-    setReviews({
-      ...newReviews,
+    setReview({
+      ...newReview,
       [event.currentTarget.name]: event.currentTarget.value,
     })
   }
 
   const clearForm = () => {
-    setReviews({
+    setReview({
       title: "",
       body: "",
       rating: "",
@@ -26,7 +26,7 @@ const ReviewForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    props.postReview(newReviews)
+    props.postReview(newReview)
     clearForm()
   }
   
@@ -47,13 +47,13 @@ const ReviewForm = (props) => {
       <form onSubmit={handleSubmit}>
         <label>
           Title:
-          <input type="text" name="title" onChange={handleChange} value={newReviews.title} />
+          <input type="text" name="title" onChange={handleChange} value={newReview.title} />
         </label>
         Review:
-        <input type="text" name="body" onChange={handleChange} value={newReviews.body} />
+        <input type="text" name="body" onChange={handleChange} value={newReview.body} />
         <label>
           Rating:
-          <select name="rating" onChange={handleChange} value={newReviews.rating}>
+          <select name="rating" onChange={handleChange} value={newReview.rating}>
             {reviewOptions}
           </select>
         </label>

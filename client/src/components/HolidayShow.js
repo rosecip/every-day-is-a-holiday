@@ -31,14 +31,14 @@ const HolidayShow = (props) => {
     fetchHoliday()
   }, [])
 
-  const postReview = async (newReviews) => {
+  const postReview = async (newReview) => {
     try {                                    
       const response = await fetch(`/api/v1/holidays/${holidayId}/reviews`, {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json",
         }),
-        body: JSON.stringify(newReviews),
+        body: JSON.stringify(newReview),
       })
       if (!response.ok) {
         if (response.status === 422) {
