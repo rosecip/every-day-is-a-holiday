@@ -2,6 +2,7 @@
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
 @import url("https://fonts.googleapis.com/css2?family=Koulen&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins&display=swap');
 // place global css here
 *,
 *::before,
@@ -75,29 +76,109 @@ body {
 }
 
 .holiday-list-container {
-  border: 1px solid black;
   width: 45em;
   height: 40em;
   display: flex;
+  overflow: scroll;
+  justify-content: center;
 }
 
 .left-side-bar {
   width: 16em;
-  height: 40em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 4em;
 }
 
 .side-bar-image {
   background-image: url("https://images.unsplash.com/photo-1572860177022-8fda92a90c95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aGFsbG93ZWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60");
-  width: 12em;
-  height: 12em;
+  width: 17em;
+  height: 17em;
   border-radius: 100%;
   background-position: center;
   background-size: cover;
   margin-bottom: 2em;
   border: .15em solid black;
-  box-shadow: -1px 1px 2px 5px gray;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
 }
 
+.right-side-bar{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 45.5em;
+  height: 40em;
+  border: 4px solid #2b4a36;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 1%;
+}
+
+.new-holiday{
+  width: 45em;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.holiday-tile{
+  width: 43em;
+  border: 3px solid #2b4a36;
+  height: 8em;
+  margin-top: 1em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.new-button, .new-button:visited{
+  color: #2b4a36;
+  text-decoration: none;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.new-holiday-text, .new-holiday-text:hover, .new-holiday-text:visited{
+  color: #2b4a36;
+  text-decoration: none;
+  font-family: "Koulen", cursive;
+  font-size: 1.5em;
+}
+
+.review-link{
+  background-color: #2b4a36;
+  width: 100%;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-link-text, .review-link-text:hover, .review-link-text:visited{
+  color: white;
+  text-decoration: none;
+  font-family: "Koulen", cursive;
+}
+
+.holiday-name-text, .holiday-name-text:hover, .holiday-name-text:visited{
+  color: #2b4a36;
+  text-decoration: none;
+  font-family: "Koulen", cursive;
+  font-size: 2em;
+}
+
+.holiday-date-text, .holiday-date-text:hover, .holiday-date-text:visited{
+  color: #2b4a36;
+  text-decoration: none;
+  font-family: "Koulen", cursive;
+  font-size: 1.5em;
+}
+
+.side-bar-info{
+  font-family: "Koulen", cursive;
+  font-size: 1.3em;
+}

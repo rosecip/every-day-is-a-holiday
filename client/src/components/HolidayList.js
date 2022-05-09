@@ -25,8 +25,8 @@ const HolidayList = (props) => {
     getHolidays()
   }, [])
 
-  const holidayListItem = holidays.map((holiday) => {
-    return <HolidayTile key={holiday.id} id={holiday.id} name={holiday.name} date={holiday.date} />
+  const holidayListItems = holidays.map((holiday) => {
+    return <HolidayTile key={holiday.id} holiday={holiday} />
   })
 
   return (
@@ -44,9 +44,14 @@ const HolidayList = (props) => {
             your own but be wary that it will be available for others to review!
           </p>
         </div>
-        <div className="holiday-list-container">
-          <Link to="/new-holiday">Add a new holiday</Link>
-          <div className="holiday-list">{holidayListItem}</div>
+        <div className="right-side-bar">
+          <div className="new-holiday">
+            <Link to="/new-holiday"><i className="fa-regular fa-square-plus fa-2xl new-button"></i></Link>
+            <Link to="/new-holiday" className="new-holiday-text">Add a new holiday</Link>
+          </div>
+          <div className="holiday-list-container">
+            <div className="holiday-list">{holidayListItems}</div>
+          </div>
         </div>
       </div>
     </div>
