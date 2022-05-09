@@ -39,6 +39,6 @@ holidaysRouter.get("/:id", async (req, res) => {
   }
 })
 
-holidaysRouter.use("/holidayId", holidayReviewRouter )
+holidaysRouter.use("/:holidayId/reviews", holidayReviewRouter )
 
 export default holidaysRouter

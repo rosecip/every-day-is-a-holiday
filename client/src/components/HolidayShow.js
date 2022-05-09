@@ -8,7 +8,6 @@ const HolidayShow = (props) => {
     date: "",
     reviews: [],
   })
-
   const holidayId = props.match.params.id
   const fetchHoliday = async () => {
     try {
@@ -28,6 +27,38 @@ const HolidayShow = (props) => {
     fetchHoliday()
   }, [])
 
+  const postReview = async (newReviews) => {
+    try {
+      //                                             
+      const response = await fetch(`/api/v1/holidays/${holidayId}/reviews`, {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+        body: JSON.stringify(newReviews),
+      })
+      if (!response.ok) {
+        if (response.status === 422) {
+          const body = await response.json()
+          const newErrors = translateServerErrors(body.errors)
+          return setErrors(newErrors)
+        } else {
+          const errorMessage = `${response.status} (${response.statusText})`
+          const error = new Error(errorMessage)
+          throw error
+        }
+      } else {
+        const body = await response.json()
+        const updatedReview = holiday.reviews.concat(body.review)
+        setErrors([])
+        setHoliday({ ...holiday, reviews: updatedReview })
+      }
+    } catch (error) {
+      console.error(`Error in fetch: ${error.message}`)
+    }
+  }
+
+
   const reviewTiles = holiday.reviews.map((review) => {
     return <ReviewTile {...review} />
   })
@@ -37,7 +68,7 @@ const HolidayShow = (props) => {
       <h1>{holiday.name}</h1>
       <h3>{holiday.date}</h3>
       <h3>Reviews</h3>
-      <ReviewForm/>
+      <ReviewForm  postReview={postReview}/>
       {reviewTiles}
     </div>
   )

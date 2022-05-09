@@ -4,6 +4,7 @@ import usersRouter from "./api/v1/usersRouter.js";
 import clientRouter from "./clientRouter.js";
 import holidaysRouter from "./api/v1/holidaysRouter.js"
 
+
 const rootRouter = new express.Router();
 rootRouter.use("/", clientRouter);
 

@@ -6,18 +6,21 @@ import cleanUserInput from "../../services/cleanUserInput.js"
 const holidayReviewRouter = express.Router({ mergeParams: true })
 
 holidayReviewRouter.post("/", async (req, res) => {
-  const { reqBody } = req
-  const formInput = cleanUserInput(reqBody)
-  const { title, body, rating } = formInput
-  const { id } = req.params
+  // const { reqBody } = req
+  // const formInput = cleanUserInput(reqBody)
+  // const { title, body, rating } = formInput
+  // const { holidayId } = req.params.id
+  const formInput = cleanUserInput(req.body)
   try {
-    const review = await Review.query().insertAndFetch({ title, body, rating, holidayId: id })
-    res.status(201).json({ review })
+                                              
+    const newReview = await Review.query().insertAndFetch({ ...formInput, holidayId: req.params.holidayId})                  
+    res.status(201).json({review: newReview})
   } catch (error) {
     if (error instanceof ValidationError) {
-      res.status(422).json({ error })
+      res.status(422).json({ errors: error.data } )
     } else {
-      res.status(500).json({ error })
+      console.log(error)
+      res.status(500).json({ error: error })
     }
   }
 })
