@@ -5,7 +5,7 @@ const ReviewTile = (props) => {
     <div>
       <h3>{props.title}</h3>
       <p>{props.body}</p>
-      <p>{props.rating}</p>
+      <p>{props.rating}/5</p>
     </div>
   )
 }

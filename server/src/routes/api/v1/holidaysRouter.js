@@ -2,6 +2,7 @@ import express from "express"
 import Holiday from "../../../models/Holiday.js"
 import { ValidationError } from "objection"
 import cleanUserInput from "../../../services/cleanUserInput.js"
+import holidayReviewRouter from "../holidayReviewsRouter.js"
 import HolidaySerializer from "../../../serializers/HolidaySerializer.js"
 
 const holidaysRouter = new express.Router()
@@ -38,5 +39,7 @@ holidaysRouter.get("/:id", async (req, res) => {
     res.status(500).json({ error })
   }
 })
+
+holidaysRouter.use("/:holidayId/reviews", holidayReviewRouter )
 
 export default holidaysRouter
