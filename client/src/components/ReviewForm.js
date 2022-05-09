@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import translateServerErrors from "../services/translateServerErrors"
 import ErrorList from "../components/layout/ErrorList"
 
 const ReviewForm = (props) => {
@@ -9,8 +8,6 @@ const ReviewForm = (props) => {
     body: "",
     rating: "",
   })
-
-  const [errors, setErrors] = useState([])
 
   const handleChange = (event) => {
     setReviews({
@@ -32,7 +29,6 @@ const ReviewForm = (props) => {
     props.postReview(newReviews)
     clearForm()
   }
-
   
   const reviewOptions = reviewStars.map((stars) => {
     return (
@@ -46,7 +42,7 @@ const ReviewForm = (props) => {
     <div>
       <h1>Review Form tehee!</h1>
       <div>
-        <ErrorList errors={errors} />
+        <ErrorList errors={props.errors} />
       </div>
       <form onSubmit={handleSubmit}>
         <label>

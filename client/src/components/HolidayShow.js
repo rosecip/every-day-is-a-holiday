@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import ReviewTile from "./ReviewTile"
 import ReviewForm from "./ReviewForm"
+import translateServerErrors from "../services/translateServerErrors"
 
 const HolidayShow = (props) => {
   const [holiday, setHoliday] = useState({
@@ -8,6 +9,9 @@ const HolidayShow = (props) => {
     date: "",
     reviews: [],
   })
+
+  const [errors, setErrors] = useState([])
+  
   const holidayId = props.match.params.id
   const fetchHoliday = async () => {
     try {
@@ -28,8 +32,7 @@ const HolidayShow = (props) => {
   }, [])
 
   const postReview = async (newReviews) => {
-    try {
-      //                                             
+    try {                                    
       const response = await fetch(`/api/v1/holidays/${holidayId}/reviews`, {
         method: "POST",
         headers: new Headers({
@@ -58,7 +61,6 @@ const HolidayShow = (props) => {
     }
   }
 
-
   const reviewTiles = holiday.reviews.map((review) => {
     return <ReviewTile {...review} />
   })
@@ -68,7 +70,7 @@ const HolidayShow = (props) => {
       <h1>{holiday.name}</h1>
       <h3>{holiday.date}</h3>
       <h3>Reviews</h3>
-      <ReviewForm  postReview={postReview}/>
+      <ReviewForm postReview={postReview} errors={errors} />
       {reviewTiles}
     </div>
   )
