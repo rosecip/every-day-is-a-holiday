@@ -73,8 +73,34 @@ const HolidayShow = (props) => {
     }
   }
 
+  //  const deleteReview = async (reviewId) => {
+  //   try {
+  //     const response = await fetch(
+  //       `api/v1/reviews/${props.id}`,
+  //       {
+  //         method: "delete",
+  //         headers: new Headers({
+  //           "Content-Type": "application/json",
+  //         }),
+  //       }
+  //     )
+  //     if (!response.ok) {
+  //       const errorMessage = `${response.status} (${response.statusText})`
+  //       const error = new Error(errorMessage)
+  //       throw error
+  //     }
+  //     const respBody = await response.json()
+  //     const filteredReviews = holiday.reviews.filter((review) => {
+  //         return review.id !== reviewId
+  //       })
+  //     setHoliday({...holiday, reviews: filteredReviews})
+  //   } catch (error) {
+  //     console.log(`Error in fetch: ${error.message}`)
+  //   }
+  // }
+
   const reviewTiles = holiday.reviews.map((review) => {
-    return <ReviewTile {...review} currentUser={currentUser} />
+    return <ReviewTile {...review} currentUser={currentUser} holidayId={holidayId} />
   })
 
   return (

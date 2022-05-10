@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 
 const ReviewTile = (props) => {
-  // const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
   // console.log("Holiday Id: ", props.holidayId)
   // console.log('review id:', props.review.id)
@@ -9,7 +9,7 @@ const ReviewTile = (props) => {
   const deleteReview = async () => {
     try {
       const response = await fetch(
-        `api/v1/reviews/${props.id}`,
+        `/api/v1/reviews/${props.id}`,
         {
           method: "delete",
           headers: new Headers({
@@ -23,7 +23,7 @@ const ReviewTile = (props) => {
         throw error
       }
       const respBody = await response.json()
-      // setShouldRedirect(true)
+      setShouldRedirect(true)
     } catch (error) {
       console.log(`Error in fetch: ${error.message}`)
     }
@@ -31,6 +31,9 @@ const ReviewTile = (props) => {
 
   let matchedFeatures = []
 
+  // const handleSubmit = () {
+  //   props.deleteReview(props.id)
+  // }
   // if (props.currentUser.id === props.user.id) {
     matchedFeatures = [
       <button type="button" className="button">
@@ -43,9 +46,9 @@ const ReviewTile = (props) => {
   // }
 
 
-  // if (shouldRedirect) {
-  //   location.href = `/holidays/${props.holidayId}`
-  // }
+  if (shouldRedirect) {
+    location.href = `/holidays/${props.holidayId}`
+  }
 
   // console.log("Current User: ", props.user)
   // console.log("Review userId: ", props.review.user.id)
