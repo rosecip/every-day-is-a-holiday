@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import ReviewTile from "./ReviewTile"
 import ReviewForm from "./ReviewForm"
 import translateServerErrors from "../services/translateServerErrors"
+import getCurrentUser from "../services/getCurrentUser"
 
 const HolidayShow = (props) => {
   const [holiday, setHoliday] = useState({
@@ -9,6 +10,16 @@ const HolidayShow = (props) => {
     date: "",
     reviews: [],
   })
+
+  const [currentUser, setCurrentUser] = useState(undefined)
+  const fetchCurrentUser = async () => {
+    try {
+      const user = await getCurrentUser()
+      setCurrentUser(user)
+    } catch (err) {
+      setCurrentUser(null)
+    }
+  }
 
   const [errors, setErrors] = useState([])
   
@@ -28,7 +39,8 @@ const HolidayShow = (props) => {
   }
 
   useEffect(() => {
-    fetchHoliday()
+    fetchHoliday(),
+    fetchCurrentUser()
   }, [])
 
   const postReview = async (newReview) => {
@@ -62,7 +74,7 @@ const HolidayShow = (props) => {
   }
 
   const reviewTiles = holiday.reviews.map((review) => {
-    return <ReviewTile {...review} />
+    return <ReviewTile review={review} user={currentUser} holidayId={holidayId}/>
   })
 
   return (

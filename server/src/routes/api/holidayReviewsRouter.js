@@ -20,4 +20,30 @@ holidayReviewRouter.post("/", async (req, res) => {
   }
 })
 
+// holidayReviewRouter.get('/:id', async (req, res) => {
+//   try{
+//   const review = await Review.query().findById(req.params.id)
+//   console.log(review)
+//   res.status(200).json({ review })
+//   } catch(error){
+//     console.log(error)
+//   res.status(500).json({ error })
+//   }
+// })
+
+holidayReviewRouter.delete('/:id', async (req, res) => {
+  const { id } = req.params
+  try {
+    const deletedReview = await Review.query().findById(id)
+    if (deletedReview) {
+      res.json({ message: "review deleted" })
+    } else {
+      throw new NotFoundError(deletedReview)
+    }
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error })
+  }
+})
+
 export default holidayReviewRouter
