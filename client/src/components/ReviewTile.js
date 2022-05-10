@@ -1,22 +1,16 @@
-import React, {useState} from "react"
+import React, { useState, useEffect } from "react"
 
 const ReviewTile = (props) => {
-  const [shouldRedirect, setShouldRedirect] = useState(false);
-
-  // console.log("Holiday Id: ", props.holidayId)
-  // console.log('review id:', props.review.id)
+  const [shouldRedirect, setShouldRedirect] = useState(false)
 
   const deleteReview = async () => {
     try {
-      const response = await fetch(
-        `/api/v1/reviews/${props.id}`,
-        {
-          method: "delete",
-          headers: new Headers({
-            "Content-Type": "application/json",
-          }),
-        }
-      )
+      const response = await fetch(`/api/v1/reviews/${props.id}`, {
+        method: "delete",
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+      })
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
@@ -31,27 +25,18 @@ const ReviewTile = (props) => {
 
   let matchedFeatures = []
 
-  // const handleSubmit = () {
-  //   props.deleteReview(props.id)
-  // }
-  // if (props.currentUser.id === props.user.id) {
+  if (props.match) {
     matchedFeatures = [
-      <button type="button" className="button">
-        Edit
-      </button>,
       <button type="button" className="button" onClick={deleteReview}>
         Delete
       </button>,
     ]
-  // }
-
+  }
 
   if (shouldRedirect) {
     location.href = `/holidays/${props.holidayId}`
   }
 
-  // console.log("Current User: ", props.user)
-  // console.log("Review userId: ", props.review.user.id)
   return (
     <div>
       <h3>{props.title}</h3>
