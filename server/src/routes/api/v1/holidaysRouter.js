@@ -28,7 +28,7 @@ holidaysRouter.post("/", async (req, res) => {
     res.status(500).json({ errors: error })
   }
 })
-
+// api/v1/holidays
 holidaysRouter.get("/:id", async (req, res) => {
   const id = req.params.id
   try {
@@ -39,7 +39,7 @@ holidaysRouter.get("/:id", async (req, res) => {
     res.status(500).json({ error })
   }
 })
-
+// api/v1/holidays/holidayId/reviews
 holidaysRouter.use("/:holidayId/reviews", holidayReviewRouter )
 
 export default holidaysRouter

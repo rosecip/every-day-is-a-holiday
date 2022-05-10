@@ -1,41 +1,17 @@
-import React from "react"
+import React, {useState} from "react"
 
 const ReviewTile = (props) => {
-  // const unauthenticatedListItems = [
-  //   <li key="sign-in">
-  //     <Link to="/user-sessions/new" className="sign-in">
-  //       Sign In
-  //     </Link>
-  //   </li>,
-  //   <li key="sign-up">
-  //     <Link to="/users/new" className="button sign-button">
-  //       Sign Up
-  //     </Link>
-  //   </li>,
-  // ]
+  // const [shouldRedirect, setShouldRedirect] = useState(false);
 
-  let matchedFeatures = []
-
-  if (props.user.id === props.review.user.id) {
-    matchedFeatures = [
-      <button type="button" className="button">
-        Edit
-      </button>,
-      <button type="button" className="button" onClick={handleSubmitDelete}>
-        Delete
-      </button>,
-    ]
-  }
-
-  console.log("Holiday Id: ", props.holidayId)
-  console.log('review id:', props.review.id)
+  // console.log("Holiday Id: ", props.holidayId)
+  // console.log('review id:', props.review.id)
 
   const deleteReview = async () => {
     try {
       const response = await fetch(
-        `api/v1/holidays/${props.holidayId}/reviews/${props.review.id}`,
+        `api/v1/reviews/${props.id}`,
         {
-          method: "DELETE",
+          method: "delete",
           headers: new Headers({
             "Content-Type": "application/json",
           }),
@@ -47,22 +23,37 @@ const ReviewTile = (props) => {
         throw error
       }
       const respBody = await response.json()
+      // setShouldRedirect(true)
     } catch (error) {
       console.log(`Error in fetch: ${error.message}`)
     }
   }
 
-  const handleSubmitDelete = () => {
-    deleteReview()
-  }
+  let matchedFeatures = []
 
-  console.log("Current User: ", props.user)
-  console.log("Review userId: ", props.review.user.id)
+  // if (props.currentUser.id === props.user.id) {
+    matchedFeatures = [
+      <button type="button" className="button">
+        Edit
+      </button>,
+      <button type="button" className="button" onClick={deleteReview}>
+        Delete
+      </button>,
+    ]
+  // }
+
+
+  // if (shouldRedirect) {
+  //   location.href = `/holidays/${props.holidayId}`
+  // }
+
+  // console.log("Current User: ", props.user)
+  // console.log("Review userId: ", props.review.user.id)
   return (
     <div>
-      <h3>{props.review.title}</h3>
-      <p>{props.review.body}</p>
-      <p>{props.review.rating}/5</p>
+      <h3>{props.title}</h3>
+      <p>{props.body}</p>
+      <p>{props.rating}/5</p>
       <p>{matchedFeatures}</p>
     </div>
   )

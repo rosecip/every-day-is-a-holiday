@@ -74,7 +74,7 @@ const HolidayShow = (props) => {
   }
 
   const reviewTiles = holiday.reviews.map((review) => {
-    return <ReviewTile review={review} user={currentUser} holidayId={holidayId}/>
+    return <ReviewTile {...review} currentUser={currentUser} />
   })
 
   return (

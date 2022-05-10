@@ -2,8 +2,6 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const HolidayTile = (props) => {
-  // const reviews = props.holiday.reviews
-  // const numOfReviews = reviews.length
   return (
     <div className="holiday-tile">
       <div>
