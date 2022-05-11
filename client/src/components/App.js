@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import { hot } from "react-hot-loader/root"
 
 import getCurrentUser from "../services/getCurrentUser"
@@ -30,9 +30,14 @@ const App = (props) => {
     <Router>
       <TopBar user={currentUser} />
       <Switch>
-        <Route exact path="/" component={HolidayList} />
+      <Route exact path="/"> 
+         <Redirect to='/holidays'/>
+        </Route>
+        <Route exact path="/holidays" component={HolidayList} />
         <Route exact path="/new-holiday" component={NewHolidayForm} />
-        <Route exact path="/holidays/:id" component={HolidayShow} />
+        <Route exact path="/holidays/:id" >
+          <HolidayShow user={currentUser} />
+        </Route>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>

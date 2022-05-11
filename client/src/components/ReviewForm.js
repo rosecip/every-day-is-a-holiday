@@ -6,7 +6,7 @@ const ReviewForm = (props) => {
   const [newReview, setReview] = useState({
     title: "",
     body: "",
-    rating: "",
+    rating: ""
   })
 
   const handleChange = (event) => {

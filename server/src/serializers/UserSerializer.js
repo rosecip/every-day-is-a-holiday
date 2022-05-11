@@ -1,6 +1,6 @@
 class UserSerializer {
   static getSummary(user) {
-    const allowedAttribute = ["email"]
+    const allowedAttribute = ["id", "email"]
 
     let serializedUser = {}
     for (const attribute of allowedAttribute) {
