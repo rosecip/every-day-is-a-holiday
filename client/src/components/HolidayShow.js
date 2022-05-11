@@ -72,12 +72,38 @@ const HolidayShow = (props) => {
     }
   }
 
+  const deleteReview = async (reviewId) => {
+    try {
+      const response = await fetch(`/api/v1/reviews/${reviewId}`, {
+        method: "delete",
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+      })
+      if (!response.ok) {
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw error
+      }
+      const respBody = await response.json()
+      const filteredReviews = holiday.reviews.filter((review) => {
+        console.log(review)
+        return review.id !== reviewId
+      })
+      setErrors([])
+      setHoliday({...holiday, reviews: filteredReviews})
+      
+    } catch (error) {
+      console.log(`Error in fetch: ${error.message}`)
+    }
+  }
+
   const reviewTiles = holiday.reviews.map((review) => {
     let match = false
     if (currentUser && currentUser.id === review.user.id) {
       match = true
     }
-    return <ReviewTile key={review.id} {...review} holidayId={holidayId} match={match} />
+    return <ReviewTile key={review.id} {...review} holidayId={holidayId} match={match} deleteReview={deleteReview} />
   })
 
   return (
