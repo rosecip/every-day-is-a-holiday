@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import ReviewTile from "./ReviewTile"
 import ReviewForm from "./ReviewForm"
 import translateServerErrors from "../services/translateServerErrors"
-import getCurrentUser from "../services/getCurrentUser"
+import { useParams } from "react-router-dom"
 
 const HolidayShow = (props) => {
   const [holiday, setHoliday] = useState({
@@ -11,19 +11,11 @@ const HolidayShow = (props) => {
     reviews: [],
   })
 
-  const [currentUser, setCurrentUser] = useState(undefined)
-  const fetchCurrentUser = async () => {
-    try {
-      const user = await getCurrentUser()
-      setCurrentUser(user)
-    } catch (err) {
-      setCurrentUser(null)
-    }
-  }
+  const params = useParams()
+  const holidayId = params.id
 
   const [errors, setErrors] = useState([])
 
-  const holidayId = props.match.params.id
   const fetchHoliday = async () => {
     try {
       const response = await fetch(`/api/v1/holidays/${holidayId}`)
@@ -39,7 +31,7 @@ const HolidayShow = (props) => {
   }
 
   useEffect(() => {
-    fetchHoliday(), fetchCurrentUser()
+    fetchHoliday()
   }, [])
 
   const postReview = async (newReview) => {
@@ -87,23 +79,29 @@ const HolidayShow = (props) => {
       }
       const respBody = await response.json()
       const filteredReviews = holiday.reviews.filter((review) => {
-        console.log(review)
         return review.id !== reviewId
       })
       setErrors([])
-      setHoliday({...holiday, reviews: filteredReviews})
-      
+      setHoliday({ ...holiday, reviews: filteredReviews })
     } catch (error) {
       console.log(`Error in fetch: ${error.message}`)
     }
   }
 
   const reviewTiles = holiday.reviews.map((review) => {
-    let match = false
-    if (currentUser && currentUser.id === review.user.id) {
-      match = true
+    let matchedUser = false
+    if (props.user && props.user.id === review.user.id) {
+      matchedUser = true
     }
-    return <ReviewTile key={review.id} {...review} holidayId={holidayId} match={match} deleteReview={deleteReview} />
+    return (
+      <ReviewTile
+        key={review.id}
+        {...review}
+        holidayId={holidayId}
+        deleteReview={deleteReview}
+        matchedUser={matchedUser}
+      />
+    )
   })
 
   return (

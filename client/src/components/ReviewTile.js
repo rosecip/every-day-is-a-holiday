@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react"
 
 const ReviewTile = (props) => {
-
-    const handleDelete = () => {
+  const handleDelete = () => {
     props.deleteReview(props.id)
   }
 
   let matchedFeatures = []
-
-  if (props.match) {
+  if (props.matchedUser) {
     matchedFeatures = [
       <button type="button" className="button" onClick={handleDelete}>
         Delete
-      </button>
+      </button>,
     ]
   }
 
