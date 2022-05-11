@@ -78,9 +78,7 @@ const HolidayShow = (props) => {
         throw error
       }
       const respBody = await response.json()
-      const filteredReviews = holiday.reviews.filter((review) => {
-        return review.id !== reviewId
-      })
+      const filteredReviews = holiday.reviews.filter((review) => review.id !== reviewId )
       setErrors([])
       setHoliday({ ...holiday, reviews: filteredReviews })
     } catch (error) {

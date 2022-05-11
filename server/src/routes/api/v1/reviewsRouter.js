@@ -10,7 +10,7 @@ reviewsRouter.delete("/:id", async (req, res) => {
       await Review.query().deleteById(req.params.id)
       res.status(200).json({ message: "This review was successfully deleted" })
     } else{
-      res.status(401).json({ message: "You did not make this review, cannot delete" })
+      res.status(401).json({ message: "Error: Unauthorized delete request" })
     }
   } catch (error) {
     res.status(500).json({ errors: error });
