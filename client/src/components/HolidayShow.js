@@ -86,6 +86,52 @@ const HolidayShow = (props) => {
     }
   }
 
+  const editReview = async (reviewBody, reviewId) => {
+    try {
+      const response = await fetch(`/api/v1/reviews/${reviewId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(reviewBody)
+      })
+      if (!response.ok) {
+        if (response.status === 422) {
+          const body = await response.json()
+          const updatedReviewsWithErrors = holiday.reviews.map((review) => {
+            if (review.id === reviewId) {
+              review.errors = body
+            }
+            return review
+          })
+          setHoliday({...holiday, reviews: updatedReviewsWithErrors})
+          return false;
+        } else {
+          const errorMessage = `${response.status} (${response.statusText})`
+          const error = new Error(errorMessage)
+          throw error
+        }
+      } else {
+        const body = await response.json()
+        const updatedReviews = holiday.reviews.map((review) => {
+          if (review.id === reviewId) {
+            review.title = body.review.title
+            review.rating = body.review.rating
+            review.body = body.review.body
+            if (review.errors) {
+              delete review.errors
+            }
+          }
+          return review
+        })
+        setErrors({})
+        setHoliday({...holiday, reviews: updatedReviews})
+        return true;
+      }
+    } catch (error) {
+      console.error(`Error in fetch: ${error.message}`)
+      return false;
+    }
+  }
+
   const reviewTiles = holiday.reviews.map((review) => {
     let matchedUser = false
     if (props.user && props.user.id === review.userId) {
@@ -95,8 +141,8 @@ const HolidayShow = (props) => {
       <ReviewTile
         key={review.id}
         {...review}
-        holidayId={holidayId}
         deleteReview={deleteReview}
+        editReview={editReview}
         matchedUser={matchedUser}
       />
     )
