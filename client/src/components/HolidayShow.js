@@ -15,6 +15,7 @@ const HolidayShow = (props) => {
   const holidayId = params.id
 
   const [errors, setErrors] = useState([])
+  const [editErrors, setEditErrors] = useState([])
 
   const fetchHoliday = async () => {
     try {
@@ -91,19 +92,14 @@ const HolidayShow = (props) => {
       const response = await fetch(`/api/v1/reviews/${reviewId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(reviewBody)
+        body: JSON.stringify(reviewBody),
       })
       if (!response.ok) {
         if (response.status === 422) {
           const body = await response.json()
-          const updatedReviewsWithErrors = holiday.reviews.map((review) => {
-            if (review.id === reviewId) {
-              review.errors = body
-            }
-            return review
-          })
-          setHoliday({...holiday, reviews: updatedReviewsWithErrors})
-          return false;
+          const newErrors = translateServerErrors(body.errors)
+          setEditErrors(newErrors)
+          return false
         } else {
           const errorMessage = `${response.status} (${response.statusText})`
           const error = new Error(errorMessage)
@@ -122,13 +118,13 @@ const HolidayShow = (props) => {
           }
           return review
         })
-        setErrors({})
-        setHoliday({...holiday, reviews: updatedReviews})
-        return true;
+        setEditErrors([])
+        setHoliday({ ...holiday, reviews: updatedReviews })
+        return true
       }
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
-      return false;
+      return false
     }
   }
 
@@ -144,6 +140,7 @@ const HolidayShow = (props) => {
         deleteReview={deleteReview}
         editReview={editReview}
         matchedUser={matchedUser}
+        errors={editErrors}
       />
     )
   })

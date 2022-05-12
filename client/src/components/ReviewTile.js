@@ -20,7 +20,7 @@ const ReviewTile = (props) => {
       </button>,
       <button type="button" className="button sign-button" onClick={handleDelete}>
         Delete
-      </button>
+      </button>,
     ]
   }
 
@@ -35,6 +35,7 @@ const ReviewTile = (props) => {
           rating={props.rating}
           editReview={props.editReview}
           toggleEdit={toggleEdit}
+          errors={props.errors}
         />
       </div>
     )

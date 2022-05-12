@@ -1,6 +1,7 @@
 import express from "express"
 import Review from "../../../models/Review.js"
-import cleanUserInput from '../../../services/cleanUserInput.js'
+import cleanUserInput from "../../../services/cleanUserInput.js"
+import { ValidationError } from "objection"
 
 const reviewsRouter = new express.Router()
 
@@ -19,26 +20,20 @@ reviewsRouter.delete("/:id", async (req, res) => {
 })
 
 reviewsRouter.patch("/:id", async (req, res) => {
-  const { body } = req.body
-  const { title, rating } = cleanUserInput(req.body)
-
+  const { title, rating, body } = cleanUserInput(req.body)
   try {
-    if (!title || !rating) {
-      return res.status(422).json({ "Error:": "Both title and rating must have values" })
-    }
-
     const reviewToEdit = await Review.query().findById(req.params.id)
     if (reviewToEdit.userId === req.user.id) {
-      const updatedReview = await Review.query().patchAndFetchById(req.params.id, {
+      const updatedReview = await Review.query().updateAndFetchById(req.params.id, {
         title,
         body,
         rating,
       })
-      res.status(200).json({ review: updatedReview })
+      res.status(201).json({ review: updatedReview })
     }
   } catch (error) {
     if (error instanceof ValidationError) {
-      return res.status(422).json({ errors: error })
+      return res.status(422).json({ errors: error.data })
     } else {
       return res.status(500).json({ errors: error })
     }
