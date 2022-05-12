@@ -8,14 +8,14 @@ const ReviewTile = (props) => {
   let matchedFeatures = []
   if (props.matchedUser) {
     matchedFeatures = [
-      <button type="button" className="button" onClick={handleDelete}>
+      <button type="button" className="button sign-button" onClick={handleDelete}>
         Delete
       </button>,
     ]
   }
 
   return (
-    <div>
+    <div className="review-tile">
       <h3>{props.title}</h3>
       <p>{props.body}</p>
       <p>{props.rating}/5</p>

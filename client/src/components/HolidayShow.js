@@ -78,7 +78,7 @@ const HolidayShow = (props) => {
         throw error
       }
       const respBody = await response.json()
-      const filteredReviews = holiday.reviews.filter((review) => review.id !== reviewId )
+      const filteredReviews = holiday.reviews.filter((review) => review.id !== reviewId)
       setErrors([])
       setHoliday({ ...holiday, reviews: filteredReviews })
     } catch (error) {
@@ -88,7 +88,7 @@ const HolidayShow = (props) => {
 
   const reviewTiles = holiday.reviews.map((review) => {
     let matchedUser = false
-    if (props.user && props.user.id === review.user.id) {
+    if (props.user && props.user.id === review.userId) {
       matchedUser = true
     }
     return (
@@ -103,12 +103,27 @@ const HolidayShow = (props) => {
   })
 
   return (
-    <div>
-      <h1>{holiday.name}</h1>
-      <h3>{holiday.date}</h3>
-      <h3>Reviews</h3>
-      <ReviewForm postReview={postReview} errors={errors} />
-      {reviewTiles}
+    <div className="show-page">
+      <div className="jumbotron">
+        <h1 className="header">Review Your Favorite Holidays</h1>
+      </div>
+      <div className="top-page">
+        <div className="holiday-section">
+          <h1 className="holiday-name">{holiday.name}</h1>
+          <h3 className="holiday-date">{holiday.date}</h3>
+          <h3 className="holiday-reviews-count">reviews: {holiday.reviews.length}</h3>
+        </div>
+        <div className="review-form-container">
+          <ReviewForm postReview={postReview} errors={errors} />
+        </div>
+      </div>
+
+      <div className="review-list">
+        <div className="reviews-div">
+          <h3>Reviews</h3>
+        </div>
+        <div className="review-tile-section">{reviewTiles}</div>
+      </div>
     </div>
   )
 }
