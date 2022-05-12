@@ -133,7 +133,7 @@ body {
   background-position: center;
   background-size: cover;
   margin-bottom: 2em;
-  border: .15em solid #f7f4f4;
+  border: .15em solid #f8f0e3;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
   margin-bottom: 5em;
 }
@@ -145,7 +145,7 @@ body {
   justify-content: flex-start;
   width: 75em;
   height: 60em;
-  border: 2px solid #f7f4f4;
+  border: 2px solid #f8f0e3;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 1%;
 }
@@ -180,14 +180,14 @@ body {
 }
 
 .new-holiday-text, .new-holiday-text:hover, .new-holiday-text:visited{
-  color: #f7f4f4;
+  color: #f8f0e3;
   text-decoration: none;
   font-family: "Koulen", cursive;
   font-size: 1.5em;
 }
 
 .review-link{
-  background-color: #f7f4f4;
+  background-color: #f8f0e3;
   width: 100%;
   height: 3em;
   display: flex;
@@ -202,7 +202,7 @@ body {
 }
 
 .holiday-name-text, .holiday-name-text:hover, .holiday-name-text:visited{
-  color: #f7f4f4;
+  color: #f8f0e3;
   text-decoration: none;
   font-family: "Koulen", cursive;
   font-size: 2em;
@@ -218,8 +218,9 @@ body {
 .side-bar-info{
   width: 20em;
   font-family: "Koulen", cursive;
-  font-size: 1.3em;
-  color: #f7f4f4;
+  font-size: 1.8em;
+  color: #f8f0e3;
+  line-height: 2.5em;
 }
 
 .show-page{
@@ -238,9 +239,9 @@ body {
 }
 
 .holiday-section{
-  background-color: #f7f4f4;
+  background-color: #f8f0e3;
   margin-left: 9em;
-  border: 3px solid #f7f4f4;
+  border: 3px solid #f8f0e3;
   border-radius: 1%;
   width: 45.5em;
   height: 40em;
@@ -254,12 +255,12 @@ body {
 
 .review-form-container{
   margin-right: 9em;
-  border: 3px solid #f7f4f4;
+  border: 3px solid #f8f0e3;
   border-radius: 1%;
   width: 45.5em;
   height: 40em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #f7f4f4;
+  background-color: #f8f0e3;
 }
 
 .add-review{
@@ -275,7 +276,7 @@ body {
 .review-form{
   width: 45em;
   height: 33.4em;
-  background-color: #f7f4f4;
+  background-color: #f8f0e3;
   border-radius: 1%;
   padding: 2.5em;
 }
@@ -320,6 +321,7 @@ body {
   align-items: center;
   justify-content: center;
   color: #212123;
+  background-color: #f8f0e3;;
 }
 
 .reviews-div h3{
@@ -331,7 +333,8 @@ body {
   height: 35em;
   margin-left: 1em;
   overflow: scroll;
-  border: 1px solid ;
+  border: 1px solid;
+  background-color: #f8f0e3;;
 }
 
 .review-tile{
@@ -346,6 +349,10 @@ body {
   justify-content: space-between;
   flex-direction: column;
   color: #f7f4f4;
+}
+
+.review-input-bar{
+  background-color: #f8f0e3;
 }
 
 

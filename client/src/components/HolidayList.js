@@ -38,6 +38,7 @@ const HolidayList = (props) => {
         <div className="left-side-bar">
           <div className="side-bar-image"></div>
           <p className="side-bar-info">
+            <hr></hr>
             Have you ever wanted to write a review and rate your favorite holiday? NOW YOU CAN! Here
             at Every Day is a Holiday you can a join a community to see what others think about your
             favorite (or least favorite) holidays. You dont see your favorite holiday? You can add
