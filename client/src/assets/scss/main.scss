@@ -16,36 +16,60 @@
 }
 
 body {
-  background-color: #f7f4f4;
+  background-color: #212123;
 }
-.home, .home:hover, .home:visited {
+.home, .home:visited {
   font-family: "Koulen", cursive;
   font-size: 2.5em;
-  color: #2b4a36;
+  color: #f7f4f4;
   text-decoration: none;
 }
 
+.home:hover{
+  text-shadow:
+    0 0 0 #fff,
+    0 0 3px #fff,
+    0 0 10px #fff,
+    0 0 42px #EAA394,
+    0 0 82px #EAA394,
+    0 0 92px #EAA394,
+}
+
 .nav {
-  background-color: #f7f4f4 !important;
+  background-color: #212123 !important;
   margin-top: 0.5em;
 }
 
 .sign-in, .sign-in:visited {
-  color: #2b4a36;
+  color: #f7f4f4;
 }
 
 .sign-in:hover {
-  color: #aa704f;
+  text-shadow:
+    0 0 0 #fff,
+    0 0 3px #fff,
+    0 0 10px #fff,
+    0 0 42px #EAA394,
+    0 0 82px #EAA394,
+    0 0 92px #EAA394,
 }
 
 .sign-button, .sign-button:visited {
-  background-color: #2b4a36;
-  color: white;
+  background-color: #f7f4f4;
+  color: #212123;
   border-radius: 12%;
 }
 
 .button:hover {
-  background-color: #aa704f !important;
+  background-color: #f7f4f4 !important;
+  color: #212123;
+  box-shadow:
+    0 0 0 #fff,
+    0 0 3px #fff,
+    0 0 10px #fff,
+    0 0 42px #EAA394,
+    0 0 82px #EAA394,
+    0 0 92px #EAA394,
 }
 
 .button:active {
@@ -54,20 +78,30 @@ body {
 
 .jumbotron {
   margin-top: 1em;
-  background-image: url("https://images.unsplash.com/photo-1550301058-13f83b4e4445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hyaXN0bWFzJTIwbGlnaHRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60");
+  background-image: url("https://images.unsplash.com/photo-1530026091265-6ab5b498c7f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2007&q=80");
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 18em;
+  height: 25em;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3em;
+  margin-bottom: 7em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .header {
   color: white;
-  font-weight: bold;
+  text-shadow:
+    0 0 0 #fff,
+    0 0 3px #fff,
+    0 0 10px #fff,
+    0 0 42px #EAA394,
+    0 0 82px #EAA394,
+    0 0 92px #EAA394,
+    0 0 102px #EAA394,
+    0 0 151px #EAA394;
+  
 }
 
 .page-content {
@@ -76,8 +110,8 @@ body {
 }
 
 .holiday-list-container {
-  width: 45em;
-  height: 40em;
+  width: 74.5em;
+  height: 58em;
   display: flex;
   overflow: scroll;
   justify-content: center;
@@ -88,19 +122,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 4em;
+  margin-left: 10em;
 }
 
 .side-bar-image {
-  background-image: url("https://images.unsplash.com/photo-1572860177022-8fda92a90c95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aGFsbG93ZWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60");
-  width: 17em;
-  height: 17em;
+  background-image: url("https://images.unsplash.com/photo-1605744435823-b88e4e9bc044?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+  width: 25em;
+  height: 25em;
   border-radius: 100%;
   background-position: center;
   background-size: cover;
   margin-bottom: 2em;
-  border: .15em solid black;
+  border: .15em solid #f7f4f4;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
+  margin-bottom: 5em;
 }
 
 .right-side-bar{
@@ -108,9 +143,9 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 45.5em;
-  height: 40em;
-  border: 4px solid #2b4a36;
+  width: 75em;
+  height: 60em;
+  border: 2px solid #f7f4f4;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 1%;
 }
@@ -124,33 +159,35 @@ body {
 }
 
 .holiday-tile{
-  width: 43em;
-  border: 3px solid #2b4a36;
-  height: 8em;
+  padding-top: 1.5em;
+  width: 72.5em;
+  border: 3px solid #f7f4f4;
+  height: 12em;
   margin-top: 1em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   align-items: center;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  background-color: #353536;
 }
 
 .new-button, .new-button:visited{
-  color: #2b4a36;
+  color: #f7f4f4;
   text-decoration: none;
   margin-left: 1em;
   margin-right: 1em;
 }
 
 .new-holiday-text, .new-holiday-text:hover, .new-holiday-text:visited{
-  color: #2b4a36;
+  color: #f7f4f4;
   text-decoration: none;
   font-family: "Koulen", cursive;
   font-size: 1.5em;
 }
 
 .review-link{
-  background-color: #2b4a36;
+  background-color: #f7f4f4;
   width: 100%;
   height: 3em;
   display: flex;
@@ -159,26 +196,156 @@ body {
 }
 
 .review-link-text, .review-link-text:hover, .review-link-text:visited{
-  color: white;
+  color: #212123;
   text-decoration: none;
   font-family: "Koulen", cursive;
 }
 
 .holiday-name-text, .holiday-name-text:hover, .holiday-name-text:visited{
-  color: #2b4a36;
+  color: #f7f4f4;
   text-decoration: none;
   font-family: "Koulen", cursive;
   font-size: 2em;
 }
 
 .holiday-date-text, .holiday-date-text:hover, .holiday-date-text:visited{
-  color: #2b4a36;
+  color: #f7f4f4;
   text-decoration: none;
   font-family: "Koulen", cursive;
   font-size: 1.5em;
 }
 
 .side-bar-info{
+  width: 20em;
   font-family: "Koulen", cursive;
   font-size: 1.3em;
+  color: #f7f4f4;
 }
+
+.show-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.top-page{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 42em;
+  margin-top: 4em;
+}
+
+.holiday-section{
+  background-color: #f7f4f4;
+  margin-left: 9em;
+  border: 3px solid #f7f4f4;
+  border-radius: 1%;
+  width: 45.5em;
+  height: 40em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding: 6em 0 6em 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.review-form-container{
+  margin-right: 9em;
+  border: 3px solid #f7f4f4;
+  border-radius: 1%;
+  width: 45.5em;
+  height: 40em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #f7f4f4;
+}
+
+.add-review{
+  margin: 1em;
+  width: 45.5em;
+  color: #212123;
+}
+
+.add-review h1{
+  font-family: "Koulen", cursive;
+}
+
+.review-form{
+  width: 45em;
+  height: 33.4em;
+  background-color: #f7f4f4;
+  border-radius: 1%;
+  padding: 2.5em;
+}
+
+.review-form-items{
+  margin-top: 1em;
+  background-color: #f7f4f4;
+  ;
+}
+
+.holiday-name {
+  color: #212123;
+  font-family: "Koulen", cursive;
+  font-size: 6em;
+}
+
+.holiday-date{
+  color: #212123;
+  font-family: "Koulen", cursive;
+  font-size: 3em;
+}
+
+.holiday-reviews-count{
+  color: #212123;
+  font-family: "Koulen", cursive;
+  font-size: 3em;
+}
+
+.review-list{
+  background-color: #f7f4f4;
+  width: 100em;
+  height: 40em;
+  border: 3px solid #f7f4f4;
+  border-radius: 1%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.reviews-div{
+  width: 100em;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #212123;
+}
+
+.reviews-div h3{
+  font-family: "Koulen", cursive;
+}
+
+.review-tile-section{
+  width: 98.8em;
+  height: 35em;
+  margin-left: 1em;
+  overflow: scroll;
+  border: 1px solid ;
+}
+
+.review-tile{
+  background-color: #212123;
+  width: 97em;
+  border: 3px solid #f7f4f4;
+  height: auto;
+  margin-top: 1em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  color: #f7f4f4;
+}
+
+

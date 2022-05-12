@@ -6,7 +6,7 @@ const ReviewForm = (props) => {
   const [newReview, setReview] = useState({
     title: "",
     body: "",
-    rating: ""
+    rating: "",
   })
 
   const handleChange = (event) => {
@@ -29,7 +29,7 @@ const ReviewForm = (props) => {
     props.postReview(newReview)
     clearForm()
   }
-  
+
   const reviewOptions = reviewStars.map((stars) => {
     return (
       <option key={stars} value={stars}>
@@ -40,27 +40,38 @@ const ReviewForm = (props) => {
 
   return (
     <div>
-      <h1>Review Form tehee!</h1>
+      <div className="add-review">
+        <h1>Add a review:</h1>
+      </div>
       <div>
         <ErrorList errors={props.errors} />
       </div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input type="text" name="title" onChange={handleChange} value={newReview.title} />
-        </label>
-        Review:
-        <input type="text" name="body" onChange={handleChange} value={newReview.body} />
+      <div className="review-form">
+        <form onSubmit={handleSubmit} className="review-form-items">
         <label>
           Rating:
           <select name="rating" onChange={handleChange} value={newReview.rating}>
             {reviewOptions}
           </select>
         </label>
+        <label>
+          Title:
+          <input type="text" name="title" onChange={handleChange} value={newReview.title} />
+        </label>
+        Review:
+        <textarea
+          id="body"
+          name="body"
+          rows="5"
+          cols="33"
+          onChange={handleChange}
+          value={newReview.body}
+        />
         <div>
-          <input type="submit" name="rating" value="Submit Review teheeee!" />
+          <input type="submit" name="rating" value="Add Review" className="button sign-button"/>
         </div>
       </form>
+      </div>
     </div>
   )
 }

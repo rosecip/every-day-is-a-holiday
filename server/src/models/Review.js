@@ -10,7 +10,7 @@ class Review extends Model {
       required: ["title", "body", "rating"],
       properties: {
         title: { type: "string", minLength: 1, maxLength: 45 },
-        body: { type: "string", minLength: 5, maxLength: 350 },
+        body: { type: "string", minLength: 5, maxLength: 5000 },
         rating: { type: ["integer", "string"] },
       },
     }
