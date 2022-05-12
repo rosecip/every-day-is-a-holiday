@@ -10,7 +10,6 @@ import TopBar from "./layout/TopBar"
 import HolidayList from "./HolidayList"
 import NewHolidayForm from "./NewHolidayForm"
 import HolidayShow from "./HolidayShow"
-import EditReviewForm from "./EditReviewForm"
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined)
