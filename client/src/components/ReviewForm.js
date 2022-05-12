@@ -47,7 +47,7 @@ const ReviewForm = (props) => {
         <ErrorList errors={props.errors} />
       </div>
       <div className="review-form">
-        <form onSubmit={handleSubmit} className="review-form-items">
+        <form onSubmit={handleSubmit} className="review-form-items review-input-bar">
         <label>
           Rating:
           <select name="rating" onChange={handleChange} value={newReview.rating}>
