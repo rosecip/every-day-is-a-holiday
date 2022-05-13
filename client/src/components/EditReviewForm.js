@@ -35,13 +35,13 @@ const EditReviewForm = (props) => {
 
   return (
     <div>
-      <div className="add-review">
+      <div className="edit-review">
         <h1>Edit review:</h1>
       </div>
       <div>
         <ErrorList errors={props.errors} />
       </div>
-      <div className="review-form">
+      <div className="edit-review-form">
         <form onSubmit={handleSubmit} className="review-form-items">
           <label>
             Rating:

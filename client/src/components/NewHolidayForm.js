@@ -64,23 +64,26 @@ const NewHolidayForm = (props) => {
   }
 
   return (
-    <div>
-      <h1>Add A New Holiday!!!!!</h1>
-      <ErrorList errors={errors} />
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" onChange={handleChange} value={newHoliday.name} />
-        </label>
+    <div className="grid-container sign-up-form-container">
+      <div className="new-holiday-picture"></div>
+      <div className="new-holiday-form">
+        <h1>Add a holiday</h1>
+        <ErrorList errors={errors} />
+        <form onSubmit={handleSubmit}>
+          <label>
+            Name
+            <input type="text" name="name" onChange={handleChange} value={newHoliday.name} />
+          </label>
 
-        <label>
-          Date:
-          <input type="text" name="date" onChange={handleChange} value={newHoliday.date} />
-        </label>
-        <div>
-          <input type="submit" value="ADD YOUR HOLIDAY!!!!!"></input>
-        </div>
-      </form>
+          <label>
+            Date
+            <input type="text" name="date" onChange={handleChange} value={newHoliday.date} />
+          </label>
+          <div>
+            <input type="submit" value="Add Holiday" className="button sign-button"></input>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
