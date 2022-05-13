@@ -53,22 +53,23 @@ body {
   border-radius: 12%;
 }
 
-.button:visited {
-  background-color: #f7f4f4 !important;
-  color: #212123;
-  border-radius: 12%;
-}
-
 .button:hover {
   background-color: #f7f4f4 !important;
   color: #212123;
-  box-shadow: 0 0 0 #fff, 0 0 3px #fff, 0 0 10px #fff, 0 0 42px #eaa394, 0 0 82px #eaa394,
-    0 0 92px #eaa394;
+  box-shadow: 0 0 0 #fff, 
+  0 0 3px #fff, 
+  0 0 10px #fff, 
+  0 0 42px #eaa394, 
+  0 0 82px #eaa394,
+  0 0 92px #eaa394;
 }
 
-.edit-button:active,
-.edit-button:visited {
+.button:active,
+.button:visited,
+.button:focus {
   background-color: #f7f4f4 !important;
+  color: #212123;
+  border-radius: 12%;
 }
 
 .jumbotron {
