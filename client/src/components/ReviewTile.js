@@ -15,10 +15,10 @@ const ReviewTile = (props) => {
   let matchedFeatures = []
   if (props.matchedUser) {
     matchedFeatures = [
-      <button type="button" className="button sign-button" onClick={toggleEdit}>
+      <button type="button" className="button sign-button edit-button" onClick={toggleEdit}>
         Edit
       </button>,
-      <button type="button" className="button sign-button" onClick={handleDelete}>
+      <button type="button" className="button sign-button delete-button" onClick={handleDelete}>
         Delete
       </button>,
     ]

@@ -66,7 +66,10 @@ const SignInForm = () => {
   }
 
   return (
-    <div className="grid-container" onSubmit={onSubmit}>
+    <div className="grid-container sign-up-form-container" onSubmit={onSubmit}>
+      <div className="sign-in-picture">
+      </div>
+    <div className="sign-up-form">
       <h1>Sign In</h1>
       <form>
         <div>
@@ -89,10 +92,12 @@ const SignInForm = () => {
           </label>
         </div>
         <div>
-          <input type="submit" className="button" value="Sign In" />
+          <input type="submit" className="button sign-button" value="Sign In" />
         </div>
       </form>
     </div>
+    </div>
+      
   );
 };
 
