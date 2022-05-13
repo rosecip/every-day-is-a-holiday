@@ -43,8 +43,8 @@ const ReviewTile = (props) => {
   return (
     <div className="review-tile">
       <h3>{props.title}</h3>
-      <p>{props.body}</p>
-      <p>{props.rating}/5</p>
+      <p className="review-body">{props.body}</p>
+      <p className="review-rating">{props.rating}/5</p>
       <p>{matchedFeatures}</p>
       {editForm}
     </div>
